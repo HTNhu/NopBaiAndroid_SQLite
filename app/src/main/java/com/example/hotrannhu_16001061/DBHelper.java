@@ -39,6 +39,13 @@ public class DBHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS SVDB.sqlite");
         onCreate(sqLiteDatabase);
     }
+    public boolean InsertLop(Lop lop, String tablename){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("name", lop.getName());
+        db.insert(tablename+"",null, contentValues);
+        return true;
+    }
     public boolean Insert(SinhVien sv, String tablename){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();

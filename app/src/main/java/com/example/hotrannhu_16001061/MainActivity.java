@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
         edtID = ((EditText)findViewById(R.id.edtID));
         edtName = (EditText) findViewById(R.id.edtName);
         edtClassname= (EditText)findViewById(R.id.edtClassname);
@@ -38,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
         btnSave = (Button)findViewById(R.id.btnSave);
         gvDisplay = (GridView) findViewById(R.id.gvDisplay);
         dbHelper = new DBHelper(this);
+        dbHelper.InsertLop(new Lop("DHKTPM12A"), "Lop");
+        dbHelper.InsertLop(new Lop("DHKTPM12B"), "Lop");
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
