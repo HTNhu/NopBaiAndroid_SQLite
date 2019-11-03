@@ -42,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
         dbHelper = new DBHelper(this);
         dbHelper.InsertLop(new Lop("DHKTPM12A"), "Lop");
         dbHelper.InsertLop(new Lop("DHKTPM12B"), "Lop");
+        dbHelper.Insert(new SinhVien("Hieu", "DHKTPM12A", "Android"), "SV");
+        dbHelper.Insert(new SinhVien("Ky", "DHKTPM12A", "Android"), "SV");
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
