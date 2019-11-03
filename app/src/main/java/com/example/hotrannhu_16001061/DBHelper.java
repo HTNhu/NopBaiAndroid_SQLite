@@ -45,6 +45,15 @@ public class DBHelper extends SQLiteOpenHelper {
         db.insert(tablename+"",null, contentValues);
         return true;
     }
+    public boolean UpdateSV(int id ,SinhVien sv, String tablename){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("subject", sv.getSubject());
+        contentValues.put("name", sv.getName());
+        contentValues.put("classname", sv.getClassname());
+        db.update(tablename+"", contentValues, "id=" +id, null);
+        return true;
+    }
     public boolean Insert(SinhVien sv, String tablename){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();

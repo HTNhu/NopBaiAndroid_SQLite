@@ -74,7 +74,13 @@
             android:text="Delete"
             tools:layout_editor_absoluteX="221dp"
             tools:layout_editor_absoluteY="274dp" />
-
+        <Button
+            android:id="@+id/btnUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update"
+            tools:layout_editor_absoluteX="316dp"
+            tools:layout_editor_absoluteY="273dp" />
         <Button
             android:id="@+id/btnClear"
             android:layout_width="wrap_content"

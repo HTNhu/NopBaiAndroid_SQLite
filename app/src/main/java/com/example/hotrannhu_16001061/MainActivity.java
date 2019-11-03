@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     EditText edtName, edtClassname, edtSubject, edtID;
-    Button btnSave, btnDel, btnClear, btnSelect;
+    Button btnSave, btnDel, btnClear, btnSelect, btnUpdate;
     GridView gvDisplay;
     DBHelper dbHelper;
     @Override
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         btnDel = (Button)findViewById(R.id.btnDel);
         btnSelect = (Button)findViewById(R.id.btnSelect);
         btnClear = (Button)findViewById(R.id.btnClear);
-//        btnExit = (Button)findViewById(R.id.btnExit);
+        btnUpdate = (Button)findViewById(R.id.btnUpdate);
         btnSave = (Button)findViewById(R.id.btnSave);
         gvDisplay = (GridView) findViewById(R.id.gvDisplay);
         dbHelper = new DBHelper(this);
@@ -78,6 +78,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dbHelper.UpdateSV(Integer.parseInt(edtID.getText().toString()),new SinhVien(edtName.getText().toString(), edtClassname.getText().toString(), edtSubject.getText().toString()), "SV");
+                loadData();
+                Toast.makeText(MainActivity.this, "Ok", Toast.LENGTH_SHORT).show();
+            }
+        });
         btnDel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
