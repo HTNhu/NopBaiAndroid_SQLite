@@ -30,14 +30,13 @@ public class DBHelper extends SQLiteOpenHelper {
     }
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("create table Lop(id integer primary key autoincrement, "+" name text)");
-        sqLiteDatabase.execSQL("create table SV(id integer primary key autoincrement, "+" name text, classname text, subject text)");
+        sqLiteDatabase.execSQL("create table if not exists Lop(id integer primary key autoincrement, "+" name text)");
+        sqLiteDatabase.execSQL("create table if not exists SV(id integer primary key autoincrement, "+" name text, classname text, subject text)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS SVDB.sqlite");
-        onCreate(sqLiteDatabase);
+
     }
     public boolean InsertLop(Lop lop, String tablename){
         SQLiteDatabase db = this.getWritableDatabase();
